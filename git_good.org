@@ -1,0 +1,278 @@
+#+title: Git Good!
+#+author: Rumen Mitov
+#+date: [2024-10-16 Wed]
+
+
+[[./assets/git_fire.png]]
+
+* Be safe, or be sorry!
+** Why Are Backups Important
+*** Recovery
+If something happens to your machine, you do not want to lose all your work! This is an even greater problem for coding projects that span =decades=!
+
+
+*** History
+If you want to make experimental changes, it is easier to do so if you know that you can always recover your previous state.
+
+** Ergonomic Backups
+The backup process should not interrupt (or significantly slow down) the development process.
+
+* Collaboration
+How do you manage a project worked on by tens of people? What about hundreds? What about thousands of developers all making changes to the source code?
+
+* Version Control Systems to the Rescue!
+=Version Control Systems= keep track of the history (or different versions) of your project. They solve the ~collaboration~ problem by being able to support different versions (or =branches=) of the source code.
+
+#+begin_example
+groceries.txt (John's branch):
+> milk
+> flour
+
+groceries.txt (Bob's branch):
+> milk
+> flour
+> tomatoes
+#+end_example
+
+When developers are ready to =merge= two branches, the version control system allows them to do so.
+
+#+begin_example
+groceries.txt (John's branch, after Bob merged his changes):
+> milk
+> flour
+> tomatoes
+#+end_example
+
+#+begin_quote
+If the changes cannot be automagically applied, a merge conflict will arise. The developer needs to resolve the merge conflict in order to successfully merge the branches.
+#+end_quote
+
+The most popular version control system today, and the topic of today's workshop is...
+
+* Git
+#+begin_quote
+FUN FACT: Git was created by Linus Torvalds to manage the development of Linux! So if Git is good enough for Linux, it is probably good enough for you!
+#+end_quote
+
+** Back to the Basics
+Git keeps track of your history in the =.git= directory. The directory in which =.git= is located is called the =root project directory=. You need only one =.git= file per project and that is fully managed by Git itself.
+
+Your entire source code is referred to as a =repository=. The repository on your machine is the ~local repository~, but if you upload your code to the cloud (see below), then the cloud repository will be referred to as the =git repository=.
+
+Git is managed by the _git_ command: [[https://github.com/git-guides/install-git][Install Git Guide]]
+
+** Let's Git Going!
+#+begin_src bash
+    # Go to the directory which you want git to track
+    cd example_dir
+
+    # Initialize directory to be a git directory (creates .git directory)
+    git init
+
+    # 🧑‍💻
+    touch groceries.txt
+    echo -e "milk\neggs\nflour" > groceries.txt
+
+    # (optional) Check changes made in git repo
+    git status
+
+    # Add your changes to git
+    # (the dot means everything in the current directory and subdirectories)
+    git add .
+
+    # (optional) If you want to add only a certain file
+    git add <name of file>
+
+    # Commit your changes (or associate a message with your changes)
+    git commit -m "your message here"
+
+    # Next Step: syncing with the cloud
+#+end_src
+
+* Sync to the Hub...the GitHub
+** What is "the Cloud"
+You can think of the =cloud= as a computer that is always on (i.e. a server) managed by someone, somewhere in the world. Since the cloud is (almost) always up and running, you should be able to access your files at any time (think OneDrive, Google Drive, Dropbox, etc.).
+
+** Github, the Developer's Cloud Storage
+- Upload / download code
+- Inspect code (syntax highlighting)
+- Automated testing of the code
+- Management of projects (issue lists, wikis, etc.)
+- etc.
+
+
+Github is the industry standard, but not the only option:
+- Gitlab
+- CodeBucket
+- Gitea
+
+
+** Hosting Your Own Code Repository Server
+If you have a spare computer around you can host your own =code repository server=. Some pre-built options are:
+- Gitlab
+- Gitea
+
+
+** Git Syncing!
+*** Prerequisites (for Github)
+- Github account with an [[https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent][SSH key]]
+- Github repository
+  
+*** Prerequisites (in general)
+- Local git repo
+
+*** Ready, Set, Sync!
+#+begin_src bash
+  # Be inside your local git repo
+  cd example_dir
+
+  # Assuming you have committed changes...
+
+  # Add remote (or the server repo's link)
+  git remote add origin <repo link here>
+
+  # Push your changes to the default branch
+  git push
+
+  # (option) If you want to push to another branch
+  git push origin <branch name>
+#+end_src
+
+*** Downloading Your Source Code
+Let's say your computer was destroyed by an alien invasion, or perhaps more simply you want to share your code on your friend Bob's computer, how would you do that?
+
+**** Downloading Everything from Scratch
+#+begin_src bash
+  git clone <repo link>
+#+end_src
+
+**** Updating Your Local Repo
+If you already have the repo on your machine and you just want to update it to any changes that someone has made, this option is for you.
+
+#+begin_src bash
+  # Make sure you are in the git directory
+  cd example_dir
+
+  # (optional) Check if there are any updates, but does not update
+  git fetch
+
+  # Update repo with new changes
+  git pull
+
+  # (option) Update repo with changes from another branch (git will try to merge)
+  git pull origin <other branch>
+#+end_src
+
+* Groceries: A Practical Example
+#+begin_src bash
+  # Create empty directory
+  mkdir groceries
+
+  cd groceries
+
+  git init
+
+  touch groceries.txt
+
+  git add .
+  git commit -m "created groceries file"
+  # we are not syncing to github in this example, but if we wanted to:
+  # git remote add origin <repo url>
+  # git pull remote origin
+  # git push -u origin master
+#+end_src
+
+Current state of our git repo:
+#+attr_latex: :environment verbatim
+#+begin_example
+        "created groceries file"
+master: ------o
+#+end_example
+
+Let's add our groceries:
+#+begin_src
+  git checkout -b my_groceries
+  echo -e "milk\neggs" > groceries.txt
+
+  git add .
+  git commit -m "added my groceries"
+#+end_src
+
+But at the same time Mark Zuckerberg adds his groceries to the same list (from his branch, so that we can make changes at the same time):
+#+begin_src bash
+  # Start from master branch
+  git checkout master
+  
+  git checkout -b zuck_groceries
+  echo -e "milk\nlizard_juice" > groceries.txt
+
+  git add .
+  git commit -m "zuck groceries"
+#+end_src
+
+The state of our git repo looks like this:
+#+attr_latex: :environment verbatim
+#+begin_example
+        "created groceries file"
+master: -----------o
+                    \ "added my groceries"
+my_groceries         o----------------
+                
+                    \ "zuck groceries"
+zuck_groceries:      o----------------
+#+end_example
+
+As you can see, we have three different versions of the same file in different ~branches~ (_master_, _my_groceries_, _zuck_groceries_). Now lets combine (or =merge=) all our changes.
+
+First _my_groceries_ to _master_:
+#+begin_src bash
+  # Make sure we are on the right branch
+  # (notice that -b is needed only when creating a new branch)
+  git checkout master
+
+  # Conduct a rebase merge (preferred)
+  git rebase my_groceries
+
+  # (optional) If we were rebasing from the cloud:
+  # git rebase origin my_groceries
+
+  # (optional) If you would like a squash merge
+  # git merge origin my_groceries
+#+end_src
+
+
+The state of our git repo looks like this:
+#+attr_latex: :environment verbatim
+#+begin_example
+        "created groceries file"
+master: -----------o                              o--------------
+                    \ "added my groceries"       /
+my_groceries         o---------------------------
+                
+                    \ "zuck groceries"
+zuck_groceries:      o-------------------------------------------
+#+end_example
+
+
+Now _zuck_groceries_:
+#+begin_src bash
+  git checkout master
+  git rebase zuck_groceries
+#+end_src
+
+*WARNING!* This will result in a =merge conflict=.
+
+_groceries.txt (master branch)_:
+#+begin_src
+  milk
+  eggs
+#+end_src
+
+_groceries.txt (zuck_groceries branch)_:
+#+begin_src
+  milk
+  lizard_juice
+#+end_src
+
+* Do You Git It Now?
+No? Then practice!

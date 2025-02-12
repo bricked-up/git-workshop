@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2024-10-21 Mon 17:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Git Good!</title>
+<meta name="author" content="Rumen Mitov" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Git Good!</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org634d42f">1. Be safe, or be sorry!</a>
+<ul>
+<li><a href="#orgcc2e2ff">1.1. Why Are Backups Important</a>
+<ul>
+<li><a href="#org8c3877e">1.1.1. Recovery</a></li>
+<li><a href="#org9ba8bcd">1.1.2. History</a></li>
+</ul>
+</li>
+<li><a href="#org542ac15">1.2. Ergonomic Backups</a></li>
+</ul>
+</li>
+<li><a href="#orga20cc2f">2. Collaboration</a></li>
+<li><a href="#org2b98ee3">3. Version Control Systems to the Rescue!</a></li>
+<li><a href="#orgf62a147">4. Git</a>
+<ul>
+<li><a href="#org02b0d83">4.1. Back to the Basics</a></li>
+<li><a href="#org3b98d55">4.2. Let's Git Going!</a></li>
+</ul>
+</li>
+<li><a href="#orgeb27c23">5. Sync to the Hub&#x2026;the GitHub</a>
+<ul>
+<li><a href="#orgd6e828f">5.1. What is "the Cloud"</a></li>
+<li><a href="#orgdbcbfd0">5.2. Github, the Developer's Cloud Storage</a></li>
+<li><a href="#org5100d98">5.3. Hosting Your Own Code Repository Server</a></li>
+<li><a href="#orgb0f681e">5.4. Git Syncing!</a>
+<ul>
+<li><a href="#org0f62b08">5.4.1. Prerequisites (for Github)</a></li>
+<li><a href="#orgbfb473a">5.4.2. Prerequisites (in general)</a></li>
+<li><a href="#org1ac3f4f">5.4.3. Ready, Set, Sync!</a></li>
+<li><a href="#org74fc5e5">5.4.4. Downloading Your Source Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5bc59ed">6. Groceries: A Practical Example</a></li>
+<li><a href="#orga8103ea">7. Do You Git It Now?</a></li>
+</ul>
+</div>
+</div>
+
+<div id="orge53d85a" class="figure">
+<p><img src="./assets/git_fire.png" alt="git_fire.png" />
+</p>
+</div>
+
+<div id="outline-container-org634d42f" class="outline-2">
+<h2 id="org634d42f"><span class="section-number-2">1.</span> Be safe, or be sorry!</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgcc2e2ff" class="outline-3">
+<h3 id="orgcc2e2ff"><span class="section-number-3">1.1.</span> Why Are Backups Important</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-org8c3877e" class="outline-4">
+<h4 id="org8c3877e"><span class="section-number-4">1.1.1.</span> Recovery</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+If something happens to your machine, you do not want to lose all your work! This is an even greater problem for coding projects that span <code>decades</code>!
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org9ba8bcd" class="outline-4">
+<h4 id="org9ba8bcd"><span class="section-number-4">1.1.2.</span> History</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+If you want to make experimental changes, it is easier to do so if you know that you can always recover your previous state.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org542ac15" class="outline-3">
+<h3 id="org542ac15"><span class="section-number-3">1.2.</span> Ergonomic Backups</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The backup process should not interrupt (or significantly slow down) the development process.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga20cc2f" class="outline-2">
+<h2 id="orga20cc2f"><span class="section-number-2">2.</span> Collaboration</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+How do you manage a project worked on by tens of people? What about hundreds? What about thousands of developers all making changes to the source code?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b98ee3" class="outline-2">
+<h2 id="org2b98ee3"><span class="section-number-2">3.</span> Version Control Systems to the Rescue!</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<code>Version Control Systems</code> keep track of the history (or different versions) of your project. They solve the <code>collaboration</code> problem by being able to support different versions (or <code>branches</code>) of the source code.
+</p>
+
+<pre class="example" id="org7df3516">
+groceries.txt (John's branch):
+&gt; milk
+&gt; flour
+
+groceries.txt (Bob's branch):
+&gt; milk
+&gt; flour
+&gt; tomatoes
+</pre>
+
+<p>
+When developers are ready to <code>merge</code> two branches, the version control system allows them to do so.
+</p>
+
+<pre class="example" id="org208d9d2">
+groceries.txt (John's branch, after Bob merged his changes):
+&gt; milk
+&gt; flour
+&gt; tomatoes
+</pre>
+
+<blockquote>
+<p>
+If the changes cannot be automagically applied, a merge conflict will arise. The developer needs to resolve the merge conflict in order to successfully merge the branches.
+</p>
+</blockquote>
+
+<p>
+The most popular version control system today, and the topic of today's workshop is&#x2026;
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf62a147" class="outline-2">
+<h2 id="orgf62a147"><span class="section-number-2">4.</span> Git</h2>
+<div class="outline-text-2" id="text-4">
+<blockquote>
+<p>
+FUN FACT: Git was created by Linus Torvalds to manage the development of Linux! So if Git is good enough for Linux, it is probably good enough for you!
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-org02b0d83" class="outline-3">
+<h3 id="org02b0d83"><span class="section-number-3">4.1.</span> Back to the Basics</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Git keeps track of your history in the <code>.git</code> directory. The directory in which <code>.git</code> is located is called the <code>root project directory</code>. You need only one <code>.git</code> file per project and that is fully managed by Git itself.
+</p>
+
+<p>
+Your entire source code is referred to as a <code>repository</code>. The repository on your machine is the <code>local repository</code>, but if you upload your code to the cloud (see below), then the cloud repository will be referred to as the <code>git repository</code>.
+</p>
+
+<p>
+Git is managed by the <span class="underline">git</span> command: <a href="https://github.com/git-guides/install-git">Install Git Guide</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b98d55" class="outline-3">
+<h3 id="org3b98d55"><span class="section-number-3">4.2.</span> Let's Git Going!</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-bash"># Go to the directory which you want git to track
+cd example_dir
+
+# Initialize directory to be a git directory (creates .git directory)
+git init
+
+# 🧑‍💻
+touch groceries.txt
+echo -e "milk\neggs\nflour" &gt; groceries.txt
+
+# (optional) Check changes made in git repo
+git status
+
+# Add your changes to git
+# (the dot means everything in the current directory and subdirectories)
+git add .
+
+# (optional) If you want to add only a certain file
+git add &lt;name of file&gt;
+
+# Commit your changes (or associate a message with your changes)
+git commit -m "your message here"
+
+# Next Step: syncing with the cloud
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgeb27c23" class="outline-2">
+<h2 id="orgeb27c23"><span class="section-number-2">5.</span> Sync to the Hub&#x2026;the GitHub</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgd6e828f" class="outline-3">
+<h3 id="orgd6e828f"><span class="section-number-3">5.1.</span> What is "the Cloud"</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+You can think of the <code>cloud</code> as a computer that is always on (i.e. a server) managed by someone, somewhere in the world. Since the cloud is (almost) always up and running, you should be able to access your files at any time (think OneDrive, Google Drive, Dropbox, etc.).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdbcbfd0" class="outline-3">
+<h3 id="orgdbcbfd0"><span class="section-number-3">5.2.</span> Github, the Developer's Cloud Storage</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>Upload / download code</li>
+<li>Inspect code (syntax highlighting)</li>
+<li>Automated testing of the code</li>
+<li>Management of projects (issue lists, wikis, etc.)</li>
+<li>etc.</li>
+</ul>
+
+
+<p>
+Github is the industry standard, but not the only option:
+</p>
+<ul class="org-ul">
+<li>Gitlab</li>
+<li>CodeBucket</li>
+<li>Gitea</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org5100d98" class="outline-3">
+<h3 id="org5100d98"><span class="section-number-3">5.3.</span> Hosting Your Own Code Repository Server</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+If you have a spare computer around you can host your own <code>code repository server</code>. Some pre-built options are:
+</p>
+<ul class="org-ul">
+<li>Gitlab</li>
+<li>Gitea</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgb0f681e" class="outline-3">
+<h3 id="orgb0f681e"><span class="section-number-3">5.4.</span> Git Syncing!</h3>
+<div class="outline-text-3" id="text-5-4">
+</div>
+<div id="outline-container-org0f62b08" class="outline-4">
+<h4 id="org0f62b08"><span class="section-number-4">5.4.1.</span> Prerequisites (for Github)</h4>
+<div class="outline-text-4" id="text-5-4-1">
+<ul class="org-ul">
+<li>Github account with an <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">SSH key</a></li>
+<li>Github repository</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbfb473a" class="outline-4">
+<h4 id="orgbfb473a"><span class="section-number-4">5.4.2.</span> Prerequisites (in general)</h4>
+<div class="outline-text-4" id="text-5-4-2">
+<ul class="org-ul">
+<li>Local git repo</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1ac3f4f" class="outline-4">
+<h4 id="org1ac3f4f"><span class="section-number-4">5.4.3.</span> Ready, Set, Sync!</h4>
+<div class="outline-text-4" id="text-5-4-3">
+<div class="org-src-container">
+<pre class="src src-bash"># Be inside your local git repo
+cd example_dir
+
+# Assuming you have committed changes...
+
+# Add remote (or the server repo's link)
+git remote add origin &lt;repo link here&gt;
+
+# Push your changes to the default branch
+git push
+
+# (option) If you want to push to another branch
+git push origin &lt;branch name&gt;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org74fc5e5" class="outline-4">
+<h4 id="org74fc5e5"><span class="section-number-4">5.4.4.</span> Downloading Your Source Code</h4>
+<div class="outline-text-4" id="text-5-4-4">
+<p>
+Let's say your computer was destroyed by an alien invasion, or perhaps more simply you want to share your code on your friend Bob's computer, how would you do that?
+</p>
+</div>
+
+<ol class="org-ol">
+<li><a id="org477d035"></a>Downloading Everything from Scratch<br />
+<div class="outline-text-5" id="text-5-4-4-1">
+<div class="org-src-container">
+<pre class="src src-bash">git clone &lt;repo link&gt;
+</pre>
+</div>
+</div>
+</li>
+
+<li><a id="orgd5087f2"></a>Updating Your Local Repo<br />
+<div class="outline-text-5" id="text-5-4-4-2">
+<p>
+If you already have the repo on your machine and you just want to update it to any changes that someone has made, this option is for you.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"># Make sure you are in the git directory
+cd example_dir
+
+# (optional) Check if there are any updates, but does not update
+git fetch
+
+# Update repo with new changes
+git pull
+
+# (option) Update repo with changes from another branch (git will try to merge)
+git pull origin &lt;other branch&gt;
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5bc59ed" class="outline-2">
+<h2 id="org5bc59ed"><span class="section-number-2">6.</span> Groceries: A Practical Example</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-bash"># Create empty directory
+mkdir groceries
+
+cd groceries
+
+git init
+
+touch groceries.txt
+
+git add .
+git commit -m "created groceries file"
+# we are not syncing to github in this example, but if we wanted to:
+# git remote add origin &lt;repo url&gt;
+# git pull remote origin
+# git push -u origin master
+</pre>
+</div>
+
+<p>
+Current state of our git repo:
+</p>
+<pre class="example" id="org60c3969">
+        "created groceries file"
+master: ------o
+</pre>
+
+<p>
+Let's add our groceries:
+</p>
+<pre class="example">
+git checkout -b my_groceries
+echo -e "milk\neggs" &gt; groceries.txt
+
+git add .
+git commit -m "added my groceries"
+</pre>
+
+<p>
+But at the same time Mark Zuckerberg adds his groceries to the same list (from his branch, so that we can make changes at the same time):
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># Start from master branch
+git checkout master
+
+git checkout -b zuck_groceries
+echo -e "milk\nlizard_juice" &gt; groceries.txt
+
+git add .
+git commit -m "zuck groceries"
+</pre>
+</div>
+
+<p>
+The state of our git repo looks like this:
+</p>
+<pre class="example" id="org47e0c1b">
+        "created groceries file"
+master: -----------o
+                    \ "added my groceries"
+my_groceries         o----------------
+                
+                    \ "zuck groceries"
+zuck_groceries:      o----------------
+</pre>
+
+<p>
+As you can see, we have three different versions of the same file in different <code>branches</code> (_master_, <span class="underline">my_groceries</span>, <span class="underline">zuck_groceries</span>). Now lets combine (or <code>merge</code>) all our changes.
+</p>
+
+<p>
+First <span class="underline">my_groceries</span> to <span class="underline">master</span>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"># Make sure we are on the right branch
+# (notice that -b is needed only when creating a new branch)
+git checkout master
+
+# Conduct a rebase merge (preferred)
+git rebase my_groceries
+
+# (optional) If we were rebasing from the cloud:
+# git rebase origin my_groceries
+
+# (optional) If you would like a squash merge
+# git merge origin my_groceries
+</pre>
+</div>
+
+
+<p>
+The state of our git repo looks like this:
+</p>
+<pre class="example" id="org3fe76b0">
+        "created groceries file"
+master: -----------o                              o--------------
+                    \ "added my groceries"       /
+my_groceries         o---------------------------
+                
+                    \ "zuck groceries"
+zuck_groceries:      o-------------------------------------------
+</pre>
+
+
+<p>
+Now <span class="underline">zuck_groceries</span>:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">git checkout master
+git rebase zuck_groceries
+</pre>
+</div>
+
+<p>
+<b>WARNING!</b> This will result in a <code>merge conflict</code>.
+</p>
+
+<p>
+<span class="underline">groceries.txt (master branch)</span>:
+</p>
+<pre class="example">
+milk
+eggs
+</pre>
+
+<p>
+<span class="underline">groceries.txt (zuck_groceries branch)</span>:
+</p>
+<pre class="example">
+milk
+lizard_juice
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga8103ea" class="outline-2">
+<h2 id="orga8103ea"><span class="section-number-2">7.</span> Do You Git It Now?</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+No? Then practice!
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2024-10-16 Wed 00:00</p>
+<p class="author">Author: Rumen Mitov</p>
+<p class="date">Created: 2024-10-21 Mon 17:56</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
