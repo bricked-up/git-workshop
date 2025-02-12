@@ -63,7 +63,7 @@ Your entire source code is referred to as a =repository=. The repository on your
 Git is managed by the _git_ command: [[https://github.com/git-guides/install-git][Install Git Guide]]
 
 ** Let's Git Going!
-#+begin_src bash
+#+begin_src shell
     # Go to the directory which you want git to track
     cd example_dir
 
@@ -123,7 +123,7 @@ If you have a spare computer around you can host your own =code repository serve
 - Local git repo
 
 *** Ready, Set, Sync!
-#+begin_src bash
+#+begin_src shell
   # Be inside your local git repo
   cd example_dir
 
@@ -143,14 +143,14 @@ If you have a spare computer around you can host your own =code repository serve
 Let's say your computer was destroyed by an alien invasion, or perhaps more simply you want to share your code on your friend Bob's computer, how would you do that?
 
 **** Downloading Everything from Scratch
-#+begin_src bash
+#+begin_src shell
   git clone <repo link>
 #+end_src
 
 **** Updating Your Local Repo
 If you already have the repo on your machine and you just want to update it to any changes that someone has made, this option is for you.
 
-#+begin_src bash
+#+begin_src shell
   # Make sure you are in the git directory
   cd example_dir
 
@@ -165,7 +165,7 @@ If you already have the repo on your machine and you just want to update it to a
 #+end_src
 
 * Groceries: A Practical Example
-#+begin_src bash
+#+begin_src shell
   # Create empty directory
   mkdir groceries
 
@@ -192,7 +192,7 @@ master: ------o
 
 Let's add our groceries:
 #+begin_src
-  git checkout -b my_groceries
+  git switch -c my_groceries
   echo -e "milk\neggs" > groceries.txt
 
   git add .
@@ -200,11 +200,11 @@ Let's add our groceries:
 #+end_src
 
 But at the same time Mark Zuckerberg adds his groceries to the same list (from his branch, so that we can make changes at the same time):
-#+begin_src bash
+#+begin_src shell
   # Start from master branch
-  git checkout master
+  git switch master
   
-  git checkout -b zuck_groceries
+  git switch -c zuck_groceries
   echo -e "milk\nlizard_juice" > groceries.txt
 
   git add .
@@ -226,16 +226,16 @@ zuck_groceries:      o----------------
 As you can see, we have three different versions of the same file in different ~branches~ (_master_, _my_groceries_, _zuck_groceries_). Now lets combine (or =merge=) all our changes.
 
 First _my_groceries_ to _master_:
-#+begin_src bash
+#+begin_src shell
   # Make sure we are on the right branch
-  # (notice that -b is needed only when creating a new branch)
-  git checkout master
+  # (notice that -c is needed only when creating a new branch)
+  git switch master
 
-  # Conduct a rebase merge (preferred)
-  git rebase my_groceries
+  # Merge to master from my_groceries
+  git merge my_groceries
 
-  # (optional) If we were rebasing from the cloud:
-  # git rebase origin my_groceries
+  # (optional) If we merging from the cloud:
+  # git merge origin my_groceries
 
   # (optional) If you would like a squash merge
   # git merge origin my_groceries
@@ -255,22 +255,24 @@ zuck_groceries:      o-------------------------------------------
 #+end_example
 
 
-Now _zuck_groceries_:
-#+begin_src bash
-  git checkout master
-  git rebase zuck_groceries
+Now _zuck_groceries_ (*WARNING!* This will result in a =merge conflict=):
+#+begin_src shell
+  git merge zuck_groceries
+
+  # We will get merge conflicts
+  git mergetool
 #+end_src
 
-*WARNING!* This will result in a =merge conflict=.
+The conflict is in line 2:
 
-_groceries.txt (master branch)_:
-#+begin_src
+#+caption: groceries.txt (master)
+#+begin_src shell -n
   milk
   eggs
 #+end_src
 
-_groceries.txt (zuck_groceries branch)_:
-#+begin_src
+#+caption: groceries.txt (zuck_groceries)
+#+begin_src shell -n
   milk
   lizard_juice
 #+end_src
