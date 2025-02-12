@@ -336,8 +336,8 @@ This is what our repo looks like now:
 #+begin_example
                  "created counter.txt"
 master: ... --------------o------------------------------------
-                    \ 
-shopkeeper:          o--------------------------------o---------
+                    \      \ REBASE \
+shopkeeper:          ----------------o--------------------------------o---------
                 "created counter.txt"        "created prices.txt"
 #+end_example
 
