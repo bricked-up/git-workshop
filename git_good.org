@@ -231,14 +231,11 @@ First _my_groceries_ to _master_:
   # (notice that -c is needed only when creating a new branch)
   git switch master
 
-  # Merge to master from my_groceries
-  git merge my_groceries
+  # Merge to master from my_groceries (use git rebase, not git merge)
+  git rebase my_groceries
 
   # (optional) If we merging from the cloud:
-  # git merge origin my_groceries
-
-  # (optional) If you would like a squash merge
-  # git merge origin my_groceries
+  # git rebase origin my_groceries
 #+end_src
 
 
@@ -277,5 +274,143 @@ The conflict is in line 2:
   lizard_juice
 #+end_src
 
+
+** Rebasing
+What happens if you are working on your branch, but someone committed changes to the ~master~ branch which you need in order to finish your work? Well... you use [[https://www.youtube.com/watch?v=nHcfoHOW4uA][rebase]].
+
+Continuing with our example:
+#+begin_src shell
+  # Delete the old branches (my_groceries and zuck_groceries)
+  git switch master
+  git branch -D my_groceries zuck_groceries
+
+  # Now let's create a new branch
+  git switch -c shopkeeper
+#+end_src
+
+Suppose that the person working on the ~shopkeeper~ branch is waiting for changes in the ~master~ branch to finish his work. In this example, we will assume that the change is the creation of a file called ~counter.txt~.
+
+#+begin_src shell
+  # Create the counter.txt file in master
+  git switch master
+  touch counter.txt
+
+  git add .
+  git commit -m "created counter.txt"
+#+end_src
+
+However, while ~counter.txt~ is being added, the ~shopkeeper~ makes some changes:
+#+begin_src shell
+  git switch shopkeeper
+  echo "prices:\neggs = 0.5\milk=2" > prices.txt
+
+  git add .
+  git commit -m "created prices.txt"
+#+end_src
+
+The current state of our repo is:
+#+attr_latex: :environment verbatim
+#+begin_example
+                 "created counter.txt"
+master: ... --------------o-------
+                    \ 
+shopkeeper:          ---o---------
+                 "created prices.txt"
+#+end_example
+
+Before the ~shopkeeper~ can commit the changes, they would need the file ~counter.txt~. This is where *rebase* comes in:
+
+#+begin_src shell
+  git switch shopkeeper
+  git rebase master
+#+end_src
+
+Here's what *rebase* does:
+1. Saves your commits made after the divergence from ~master~
+2. Applies the commits from the ~master~ branch
+3. Re-applies your saved commits on top
+
+
+This is what our repo looks like now:
+#+attr_latex: :environment verbatim
+#+begin_example
+                 "created counter.txt"
+master: ... --------------o------------------------------------
+                    \ 
+shopkeeper:          o--------------------------------o---------
+                "created counter.txt"        "created prices.txt"
+#+end_example
+
+Now, the ~shopkeeper~ has successfully incorporated changes from *upstream* while keeping their branch commits.
+
+** Rolling Back
+What happens if you make a mistake and you want to go back to a previous commit? Use ~git reset~:
+#+begin_src shell
+  # Use --soft if you want to move to a previous commit but keep your changes staged
+  git reset --soft <commit hash>
+
+  # Use --hard if you want to discard all changes and return to the exact state of the previous commit
+  git reset --hard <commit hash>
+#+end_src
+
+You can get the commit hash by any of the following methods:
+#+begin_src shell
+  git log
+  git log --oneline
+  git log --oneline --graph
+#+end_src
+
+** Stashing
+Imagine you made some changes, but you are not ready to commit them. Now you want to rebase (pull) some changes from upstream. The problem is that for rebase (pull) to work, you would need your local changes to be committed. A way to mitigate this is to use the *stash*.
+
+The stash is like a bin, where you can "throw" your changes into. You can do so with ~git stash~. If you want to bring back the latest changes from the stash: ~git stash pop~.
+
+To list the changes in stash: ~git stash list~.
+
+If you wish to get rid of everything in your stash (you will not be able to recover them later): ~git stash clear~.
+
 * Do You Git It Now?
 No? Then practice!
+
+* Git Policy for Bricked-Up (Backend)
+** Branch Policy
+- Each new feature / fix is its own branch
+- Commit freely to that branch
+- Developers submit pull requests (PRs) to =dev= branch ([[*Commit Message Prefix][meaningful]] commit message)
+- Lead must [[*PR Approval Criteria][review]] all PRs, before they are merged into =dev=
+- Lead is responsible for making sure =dev= works before merging with =master=
+- *NOTE*: Only =dev= merges with =master=
+
+
+#+begin_quote
+TIP: Do not be afraid of commits! Commit your changes often! That's what they are for! For the purposes of our team, only the final commit (a.k.a. the PR commit) message must be properly structured! 
+#+end_quote
+
+** PR Approval Criteria
+Here are the criteria the PR must adhere to in order to be accepted:
+- No merge conflicts
+- All tests are passing
+- No junk files are present (e.g. ~.vscode~)
+- Directory hierarchy is followed
+- PR commit message is [[*Commit Message Prefix][properly structured]]
+  
+** Commit Message Prefix
+This applies to final commits (i.e. commits when merging):
+- *feat(<feature>)*: description
+- *refactor(<feature>)*: description
+- *fix(<feature>):* description
+- *hotfix(<bug>)*: description
+- *bug(<bug>)*: description
+- *tests(<feature>)*: description
+- *misc*: description
+- *docs*: description
+- *update*: description
+
+#+caption: Example merge commit message.
+#+begin_example
+feat(login): created login endpoint
+#+end_example
+
+** Merging and Rebasing Policy
+- *Squash merge* if your feature is ready to be merged upstream!
+- *Rebase* if you are still working on your code, but you need to pull the latest changes!
