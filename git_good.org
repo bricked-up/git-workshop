@@ -302,7 +302,7 @@ Suppose that the person working on the ~shopkeeper~ branch is waiting for change
 However, while ~counter.txt~ is being added, the ~shopkeeper~ makes some changes:
 #+begin_src shell
   git switch shopkeeper
-  echo "prices:\neggs = 0.5\milk=2" > prices.txt
+  echo -e "prices:\neggs = 0.5\nmilk=2" > prices.txt
 
   git add .
   git commit -m "created prices.txt"
