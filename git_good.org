@@ -338,7 +338,7 @@ This is what our repo looks like now:
 master: ... --------------o------------------------------------
                     \      \ REBASE \
 shopkeeper:          ----------------o--------------------------------o---------
-                "created counter.txt"        "created prices.txt"
+                            "created counter.txt"            "created prices.txt"
 #+end_example
 
 Now, the ~shopkeeper~ has successfully incorporated changes from *upstream* while keeping their branch commits.
