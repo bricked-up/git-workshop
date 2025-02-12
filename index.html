@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2024-10-21 Mon 17:56 -->
+<!-- 2025-02-12 Wed 21:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git Good!</title>
@@ -201,61 +201,61 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org634d42f">1. Be safe, or be sorry!</a>
+<li><a href="#orgb42ab9d">1. Be safe, or be sorry!</a>
 <ul>
-<li><a href="#orgcc2e2ff">1.1. Why Are Backups Important</a>
+<li><a href="#orge0ed5fe">1.1. Why Are Backups Important</a>
 <ul>
-<li><a href="#org8c3877e">1.1.1. Recovery</a></li>
-<li><a href="#org9ba8bcd">1.1.2. History</a></li>
+<li><a href="#orgc1cccc3">1.1.1. Recovery</a></li>
+<li><a href="#org2c9e89f">1.1.2. History</a></li>
 </ul>
 </li>
-<li><a href="#org542ac15">1.2. Ergonomic Backups</a></li>
+<li><a href="#org4a5df15">1.2. Ergonomic Backups</a></li>
 </ul>
 </li>
-<li><a href="#orga20cc2f">2. Collaboration</a></li>
-<li><a href="#org2b98ee3">3. Version Control Systems to the Rescue!</a></li>
-<li><a href="#orgf62a147">4. Git</a>
+<li><a href="#orge18d63b">2. Collaboration</a></li>
+<li><a href="#org7bc40fc">3. Version Control Systems to the Rescue!</a></li>
+<li><a href="#orgffcd441">4. Git</a>
 <ul>
-<li><a href="#org02b0d83">4.1. Back to the Basics</a></li>
-<li><a href="#org3b98d55">4.2. Let's Git Going!</a></li>
+<li><a href="#org0378cb2">4.1. Back to the Basics</a></li>
+<li><a href="#org1056b05">4.2. Let's Git Going!</a></li>
 </ul>
 </li>
-<li><a href="#orgeb27c23">5. Sync to the Hub&#x2026;the GitHub</a>
+<li><a href="#orgfe28ab8">5. Sync to the Hub&#x2026;the GitHub</a>
 <ul>
-<li><a href="#orgd6e828f">5.1. What is "the Cloud"</a></li>
-<li><a href="#orgdbcbfd0">5.2. Github, the Developer's Cloud Storage</a></li>
-<li><a href="#org5100d98">5.3. Hosting Your Own Code Repository Server</a></li>
-<li><a href="#orgb0f681e">5.4. Git Syncing!</a>
+<li><a href="#orgbe3639a">5.1. What is "the Cloud"</a></li>
+<li><a href="#org67cfcf3">5.2. Github, the Developer's Cloud Storage</a></li>
+<li><a href="#org4077dfc">5.3. Hosting Your Own Code Repository Server</a></li>
+<li><a href="#org5f5103c">5.4. Git Syncing!</a>
 <ul>
-<li><a href="#org0f62b08">5.4.1. Prerequisites (for Github)</a></li>
-<li><a href="#orgbfb473a">5.4.2. Prerequisites (in general)</a></li>
-<li><a href="#org1ac3f4f">5.4.3. Ready, Set, Sync!</a></li>
-<li><a href="#org74fc5e5">5.4.4. Downloading Your Source Code</a></li>
+<li><a href="#org603d26c">5.4.1. Prerequisites (for Github)</a></li>
+<li><a href="#org888b471">5.4.2. Prerequisites (in general)</a></li>
+<li><a href="#org61fbf41">5.4.3. Ready, Set, Sync!</a></li>
+<li><a href="#orgc36d745">5.4.4. Downloading Your Source Code</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org5bc59ed">6. Groceries: A Practical Example</a></li>
-<li><a href="#orga8103ea">7. Do You Git It Now?</a></li>
+<li><a href="#orgfc0bc33">6. Groceries: A Practical Example</a></li>
+<li><a href="#org8831108">7. Do You Git It Now?</a></li>
 </ul>
 </div>
 </div>
 
-<div id="orge53d85a" class="figure">
+<div id="org109fe47" class="figure">
 <p><img src="./assets/git_fire.png" alt="git_fire.png" />
 </p>
 </div>
 
-<div id="outline-container-org634d42f" class="outline-2">
-<h2 id="org634d42f"><span class="section-number-2">1.</span> Be safe, or be sorry!</h2>
+<div id="outline-container-orgb42ab9d" class="outline-2">
+<h2 id="orgb42ab9d"><span class="section-number-2">1.</span> Be safe, or be sorry!</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgcc2e2ff" class="outline-3">
-<h3 id="orgcc2e2ff"><span class="section-number-3">1.1.</span> Why Are Backups Important</h3>
+<div id="outline-container-orge0ed5fe" class="outline-3">
+<h3 id="orge0ed5fe"><span class="section-number-3">1.1.</span> Why Are Backups Important</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org8c3877e" class="outline-4">
-<h4 id="org8c3877e"><span class="section-number-4">1.1.1.</span> Recovery</h4>
+<div id="outline-container-orgc1cccc3" class="outline-4">
+<h4 id="orgc1cccc3"><span class="section-number-4">1.1.1.</span> Recovery</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 If something happens to your machine, you do not want to lose all your work! This is an even greater problem for coding projects that span <code>decades</code>!
@@ -264,8 +264,8 @@ If something happens to your machine, you do not want to lose all your work! Thi
 </div>
 
 
-<div id="outline-container-org9ba8bcd" class="outline-4">
-<h4 id="org9ba8bcd"><span class="section-number-4">1.1.2.</span> History</h4>
+<div id="outline-container-org2c9e89f" class="outline-4">
+<h4 id="org2c9e89f"><span class="section-number-4">1.1.2.</span> History</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 If you want to make experimental changes, it is easier to do so if you know that you can always recover your previous state.
@@ -274,8 +274,8 @@ If you want to make experimental changes, it is easier to do so if you know that
 </div>
 </div>
 
-<div id="outline-container-org542ac15" class="outline-3">
-<h3 id="org542ac15"><span class="section-number-3">1.2.</span> Ergonomic Backups</h3>
+<div id="outline-container-org4a5df15" class="outline-3">
+<h3 id="org4a5df15"><span class="section-number-3">1.2.</span> Ergonomic Backups</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The backup process should not interrupt (or significantly slow down) the development process.
@@ -284,8 +284,8 @@ The backup process should not interrupt (or significantly slow down) the develop
 </div>
 </div>
 
-<div id="outline-container-orga20cc2f" class="outline-2">
-<h2 id="orga20cc2f"><span class="section-number-2">2.</span> Collaboration</h2>
+<div id="outline-container-orge18d63b" class="outline-2">
+<h2 id="orge18d63b"><span class="section-number-2">2.</span> Collaboration</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 How do you manage a project worked on by tens of people? What about hundreds? What about thousands of developers all making changes to the source code?
@@ -293,14 +293,14 @@ How do you manage a project worked on by tens of people? What about hundreds? Wh
 </div>
 </div>
 
-<div id="outline-container-org2b98ee3" class="outline-2">
-<h2 id="org2b98ee3"><span class="section-number-2">3.</span> Version Control Systems to the Rescue!</h2>
+<div id="outline-container-org7bc40fc" class="outline-2">
+<h2 id="org7bc40fc"><span class="section-number-2">3.</span> Version Control Systems to the Rescue!</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <code>Version Control Systems</code> keep track of the history (or different versions) of your project. They solve the <code>collaboration</code> problem by being able to support different versions (or <code>branches</code>) of the source code.
 </p>
 
-<pre class="example" id="org7df3516">
+<pre class="example" id="orga684299">
 groceries.txt (John's branch):
 &gt; milk
 &gt; flour
@@ -315,7 +315,7 @@ groceries.txt (Bob's branch):
 When developers are ready to <code>merge</code> two branches, the version control system allows them to do so.
 </p>
 
-<pre class="example" id="org208d9d2">
+<pre class="example" id="orgb3c8ecf">
 groceries.txt (John's branch, after Bob merged his changes):
 &gt; milk
 &gt; flour
@@ -334,8 +334,8 @@ The most popular version control system today, and the topic of today's workshop
 </div>
 </div>
 
-<div id="outline-container-orgf62a147" class="outline-2">
-<h2 id="orgf62a147"><span class="section-number-2">4.</span> Git</h2>
+<div id="outline-container-orgffcd441" class="outline-2">
+<h2 id="orgffcd441"><span class="section-number-2">4.</span> Git</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -344,8 +344,8 @@ FUN FACT: Git was created by Linus Torvalds to manage the development of Linux! 
 </blockquote>
 </div>
 
-<div id="outline-container-org02b0d83" class="outline-3">
-<h3 id="org02b0d83"><span class="section-number-3">4.1.</span> Back to the Basics</h3>
+<div id="outline-container-org0378cb2" class="outline-3">
+<h3 id="org0378cb2"><span class="section-number-3">4.1.</span> Back to the Basics</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Git keeps track of your history in the <code>.git</code> directory. The directory in which <code>.git</code> is located is called the <code>root project directory</code>. You need only one <code>.git</code> file per project and that is fully managed by Git itself.
@@ -361,8 +361,8 @@ Git is managed by the <span class="underline">git</span> command: <a href="https
 </div>
 </div>
 
-<div id="outline-container-org3b98d55" class="outline-3">
-<h3 id="org3b98d55"><span class="section-number-3">4.2.</span> Let's Git Going!</h3>
+<div id="outline-container-org1056b05" class="outline-3">
+<h3 id="org1056b05"><span class="section-number-3">4.2.</span> Let's Git Going!</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-bash"># Go to the directory which you want git to track
@@ -395,12 +395,12 @@ git commit -m "your message here"
 </div>
 </div>
 
-<div id="outline-container-orgeb27c23" class="outline-2">
-<h2 id="orgeb27c23"><span class="section-number-2">5.</span> Sync to the Hub&#x2026;the GitHub</h2>
+<div id="outline-container-orgfe28ab8" class="outline-2">
+<h2 id="orgfe28ab8"><span class="section-number-2">5.</span> Sync to the Hub&#x2026;the GitHub</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgd6e828f" class="outline-3">
-<h3 id="orgd6e828f"><span class="section-number-3">5.1.</span> What is "the Cloud"</h3>
+<div id="outline-container-orgbe3639a" class="outline-3">
+<h3 id="orgbe3639a"><span class="section-number-3">5.1.</span> What is "the Cloud"</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 You can think of the <code>cloud</code> as a computer that is always on (i.e. a server) managed by someone, somewhere in the world. Since the cloud is (almost) always up and running, you should be able to access your files at any time (think OneDrive, Google Drive, Dropbox, etc.).
@@ -408,8 +408,8 @@ You can think of the <code>cloud</code> as a computer that is always on (i.e. a 
 </div>
 </div>
 
-<div id="outline-container-orgdbcbfd0" class="outline-3">
-<h3 id="orgdbcbfd0"><span class="section-number-3">5.2.</span> Github, the Developer's Cloud Storage</h3>
+<div id="outline-container-org67cfcf3" class="outline-3">
+<h3 id="org67cfcf3"><span class="section-number-3">5.2.</span> Github, the Developer's Cloud Storage</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Upload / download code</li>
@@ -432,8 +432,8 @@ Github is the industry standard, but not the only option:
 </div>
 
 
-<div id="outline-container-org5100d98" class="outline-3">
-<h3 id="org5100d98"><span class="section-number-3">5.3.</span> Hosting Your Own Code Repository Server</h3>
+<div id="outline-container-org4077dfc" class="outline-3">
+<h3 id="org4077dfc"><span class="section-number-3">5.3.</span> Hosting Your Own Code Repository Server</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 If you have a spare computer around you can host your own <code>code repository server</code>. Some pre-built options are:
@@ -446,12 +446,12 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 
 
-<div id="outline-container-orgb0f681e" class="outline-3">
-<h3 id="orgb0f681e"><span class="section-number-3">5.4.</span> Git Syncing!</h3>
+<div id="outline-container-org5f5103c" class="outline-3">
+<h3 id="org5f5103c"><span class="section-number-3">5.4.</span> Git Syncing!</h3>
 <div class="outline-text-3" id="text-5-4">
 </div>
-<div id="outline-container-org0f62b08" class="outline-4">
-<h4 id="org0f62b08"><span class="section-number-4">5.4.1.</span> Prerequisites (for Github)</h4>
+<div id="outline-container-org603d26c" class="outline-4">
+<h4 id="org603d26c"><span class="section-number-4">5.4.1.</span> Prerequisites (for Github)</h4>
 <div class="outline-text-4" id="text-5-4-1">
 <ul class="org-ul">
 <li>Github account with an <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">SSH key</a></li>
@@ -460,8 +460,8 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 </div>
 
-<div id="outline-container-orgbfb473a" class="outline-4">
-<h4 id="orgbfb473a"><span class="section-number-4">5.4.2.</span> Prerequisites (in general)</h4>
+<div id="outline-container-org888b471" class="outline-4">
+<h4 id="org888b471"><span class="section-number-4">5.4.2.</span> Prerequisites (in general)</h4>
 <div class="outline-text-4" id="text-5-4-2">
 <ul class="org-ul">
 <li>Local git repo</li>
@@ -469,8 +469,8 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 </div>
 
-<div id="outline-container-org1ac3f4f" class="outline-4">
-<h4 id="org1ac3f4f"><span class="section-number-4">5.4.3.</span> Ready, Set, Sync!</h4>
+<div id="outline-container-org61fbf41" class="outline-4">
+<h4 id="org61fbf41"><span class="section-number-4">5.4.3.</span> Ready, Set, Sync!</h4>
 <div class="outline-text-4" id="text-5-4-3">
 <div class="org-src-container">
 <pre class="src src-bash"># Be inside your local git repo
@@ -491,8 +491,8 @@ git push origin &lt;branch name&gt;
 </div>
 </div>
 
-<div id="outline-container-org74fc5e5" class="outline-4">
-<h4 id="org74fc5e5"><span class="section-number-4">5.4.4.</span> Downloading Your Source Code</h4>
+<div id="outline-container-orgc36d745" class="outline-4">
+<h4 id="orgc36d745"><span class="section-number-4">5.4.4.</span> Downloading Your Source Code</h4>
 <div class="outline-text-4" id="text-5-4-4">
 <p>
 Let's say your computer was destroyed by an alien invasion, or perhaps more simply you want to share your code on your friend Bob's computer, how would you do that?
@@ -500,7 +500,7 @@ Let's say your computer was destroyed by an alien invasion, or perhaps more simp
 </div>
 
 <ol class="org-ol">
-<li><a id="org477d035"></a>Downloading Everything from Scratch<br />
+<li><a id="orgf0a02a4"></a>Downloading Everything from Scratch<br />
 <div class="outline-text-5" id="text-5-4-4-1">
 <div class="org-src-container">
 <pre class="src src-bash">git clone &lt;repo link&gt;
@@ -509,7 +509,7 @@ Let's say your computer was destroyed by an alien invasion, or perhaps more simp
 </div>
 </li>
 
-<li><a id="orgd5087f2"></a>Updating Your Local Repo<br />
+<li><a id="orgffc8f21"></a>Updating Your Local Repo<br />
 <div class="outline-text-5" id="text-5-4-4-2">
 <p>
 If you already have the repo on your machine and you just want to update it to any changes that someone has made, this option is for you.
@@ -536,8 +536,8 @@ git pull origin &lt;other branch&gt;
 </div>
 </div>
 
-<div id="outline-container-org5bc59ed" class="outline-2">
-<h2 id="org5bc59ed"><span class="section-number-2">6.</span> Groceries: A Practical Example</h2>
+<div id="outline-container-orgfc0bc33" class="outline-2">
+<h2 id="orgfc0bc33"><span class="section-number-2">6.</span> Groceries: A Practical Example</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-bash"># Create empty directory
@@ -561,7 +561,7 @@ git commit -m "created groceries file"
 <p>
 Current state of our git repo:
 </p>
-<pre class="example" id="org60c3969">
+<pre class="example" id="org25d9af4">
         "created groceries file"
 master: ------o
 </pre>
@@ -595,7 +595,7 @@ git commit -m "zuck groceries"
 <p>
 The state of our git repo looks like this:
 </p>
-<pre class="example" id="org47e0c1b">
+<pre class="example" id="org6fb798f">
         "created groceries file"
 master: -----------o
                     \ "added my groceries"
@@ -632,7 +632,7 @@ git rebase my_groceries
 <p>
 The state of our git repo looks like this:
 </p>
-<pre class="example" id="org3fe76b0">
+<pre class="example" id="org9e54e96">
         "created groceries file"
 master: -----------o                              o--------------
                     \ "added my groceries"       /
@@ -674,8 +674,8 @@ lizard_juice
 </div>
 </div>
 
-<div id="outline-container-orga8103ea" class="outline-2">
-<h2 id="orga8103ea"><span class="section-number-2">7.</span> Do You Git It Now?</h2>
+<div id="outline-container-org8831108" class="outline-2">
+<h2 id="org8831108"><span class="section-number-2">7.</span> Do You Git It Now?</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 No? Then practice!
@@ -686,7 +686,7 @@ No? Then practice!
 <div id="postamble" class="status">
 <p class="date">Date: 2024-10-16 Wed 00:00</p>
 <p class="author">Author: Rumen Mitov</p>
-<p class="date">Created: 2024-10-21 Mon 17:56</p>
+<p class="date">Created: 2025-02-12 Wed 21:47</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

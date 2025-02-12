@@ -1,6 +1,7 @@
 #+title: Git Good!
 #+author: Rumen Mitov
 #+date: [2024-10-16 Wed]
+#+export_file_name: index.html
 
 
 [[./assets/git_fire.png]]
