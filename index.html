@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-12 Wed 23:31 -->
+<!-- 2025-02-13 Thu 17:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git Good!</title>
@@ -201,75 +201,67 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org123cee6">1. Be safe, or be sorry!</a>
+<li><a href="#org015b407">1. Be safe, or be sorry!</a>
 <ul>
-<li><a href="#org291dc01">1.1. Why Are Backups Important</a>
+<li><a href="#org5b6b491">1.1. Why Are Backups Important</a>
 <ul>
-<li><a href="#org6d4a350">1.1.1. Recovery</a></li>
-<li><a href="#orgb5cc1db">1.1.2. History</a></li>
+<li><a href="#org6018fc5">1.1.1. Recovery</a></li>
+<li><a href="#org3a47660">1.1.2. History</a></li>
 </ul>
 </li>
-<li><a href="#orgd867b82">1.2. Ergonomic Backups</a></li>
+<li><a href="#orgf081dbb">1.2. Ergonomic Backups</a></li>
 </ul>
 </li>
-<li><a href="#orgbbb3a7f">2. Collaboration</a></li>
-<li><a href="#org18b4753">3. Version Control Systems to the Rescue!</a></li>
-<li><a href="#org06459e2">4. Git</a>
+<li><a href="#org0d47e51">2. Collaboration</a></li>
+<li><a href="#orgd166ac5">3. Version Control Systems to the Rescue!</a></li>
+<li><a href="#org34cc0ae">4. Git</a>
 <ul>
-<li><a href="#org27a3cd8">4.1. Back to the Basics</a></li>
-<li><a href="#org863f9be">4.2. Let's Git Going!</a></li>
+<li><a href="#org9f19d24">4.1. Back to the Basics</a></li>
+<li><a href="#orgfdef7ae">4.2. Let's Git Going!</a></li>
 </ul>
 </li>
-<li><a href="#orgea93765">5. Sync to the Hub&#x2026;the GitHub</a>
+<li><a href="#org8d8b132">5. Sync to the Hub&#x2026;the GitHub</a>
 <ul>
-<li><a href="#org13c0d98">5.1. What is "the Cloud"</a></li>
-<li><a href="#org4465c4d">5.2. Github, the Developer's Cloud Storage</a></li>
-<li><a href="#org2c4450a">5.3. Hosting Your Own Code Repository Server</a></li>
-<li><a href="#orgf436254">5.4. Git Syncing!</a>
+<li><a href="#orgb133798">5.1. What is "the Cloud"</a></li>
+<li><a href="#org3e6a24e">5.2. Github, the Developer's Cloud Storage</a></li>
+<li><a href="#orgcb64a14">5.3. Hosting Your Own Code Repository Server</a></li>
+<li><a href="#orgcc738b9">5.4. Git Syncing!</a>
 <ul>
-<li><a href="#orgc772231">5.4.1. Prerequisites (for Github)</a></li>
-<li><a href="#org609a567">5.4.2. Prerequisites (in general)</a></li>
-<li><a href="#org1483168">5.4.3. Ready, Set, Sync!</a></li>
-<li><a href="#org77daac8">5.4.4. Downloading Your Source Code</a></li>
+<li><a href="#org11a358a">5.4.1. Prerequisites (for Github)</a></li>
+<li><a href="#org4675282">5.4.2. Prerequisites (in general)</a></li>
+<li><a href="#org0f600b9">5.4.3. Ready, Set, Sync!</a></li>
+<li><a href="#orgf43d654">5.4.4. Downloading Your Source Code</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org4dc7548">6. Groceries: A Practical Example</a>
+<li><a href="#orgcb5eac5">6. Groceries: A Practical Example</a>
 <ul>
-<li><a href="#org7805b8f">6.1. Rebasing</a></li>
-<li><a href="#orgac5c7ab">6.2. Rolling Back</a></li>
-<li><a href="#org56c508b">6.3. Stashing</a></li>
+<li><a href="#org706bc1a">6.1. Rebasing</a></li>
+<li><a href="#org957722d">6.2. Rolling Back</a></li>
+<li><a href="#org412ef73">6.3. Stashing</a></li>
 </ul>
 </li>
-<li><a href="#orgd724828">7. Do You Git It Now?</a></li>
-<li><a href="#org647228c">8. Git Policy for Bricked-Up (Backend)</a>
-<ul>
-<li><a href="#org845fbff">8.1. Branch Policy</a></li>
-<li><a href="#org5ce761a">8.2. PR Approval Criteria</a></li>
-<li><a href="#org94777f3">8.3. Commit Message Prefix</a></li>
-<li><a href="#org25dd590">8.4. Merging and Rebasing Policy</a></li>
-</ul>
-</li>
+<li><a href="#orge296532">7. Do You Git It Now?</a></li>
 </ul>
 </div>
 </div>
 
-<div id="orga4d9174" class="figure">
+<div id="org4484edd" class="figure">
 <p><img src="./assets/git_fire.png" alt="git_fire.png" />
 </p>
 </div>
 
-<div id="outline-container-org123cee6" class="outline-2">
-<h2 id="org123cee6"><span class="section-number-2">1.</span> Be safe, or be sorry!</h2>
+<div id="outline-container-org015b407" class="outline-2">
+<h2 id="org015b407"><span class="section-number-2">1.</span> Be safe, or be sorry!</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org291dc01" class="outline-3">
-<h3 id="org291dc01"><span class="section-number-3">1.1.</span> Why Are Backups Important</h3>
+<div id="outline-container-org5b6b491" class="outline-3">
+<h3 id="org5b6b491"><span class="section-number-3">1.1.</span> Why Are Backups Important</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org6d4a350" class="outline-4">
-<h4 id="org6d4a350"><span class="section-number-4">1.1.1.</span> Recovery</h4>
+<div id="outline-container-org6018fc5" class="outline-4">
+<h4 id="org6018fc5"><span class="section-number-4">1.1.1.</span> Recovery</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 If something happens to your machine, you do not want to lose all your work! This is an even greater problem for coding projects that span <code>decades</code>!
@@ -278,8 +270,8 @@ If something happens to your machine, you do not want to lose all your work! Thi
 </div>
 
 
-<div id="outline-container-orgb5cc1db" class="outline-4">
-<h4 id="orgb5cc1db"><span class="section-number-4">1.1.2.</span> History</h4>
+<div id="outline-container-org3a47660" class="outline-4">
+<h4 id="org3a47660"><span class="section-number-4">1.1.2.</span> History</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 If you want to make experimental changes, it is easier to do so if you know that you can always recover your previous state.
@@ -288,8 +280,8 @@ If you want to make experimental changes, it is easier to do so if you know that
 </div>
 </div>
 
-<div id="outline-container-orgd867b82" class="outline-3">
-<h3 id="orgd867b82"><span class="section-number-3">1.2.</span> Ergonomic Backups</h3>
+<div id="outline-container-orgf081dbb" class="outline-3">
+<h3 id="orgf081dbb"><span class="section-number-3">1.2.</span> Ergonomic Backups</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The backup process should not interrupt (or significantly slow down) the development process.
@@ -298,8 +290,8 @@ The backup process should not interrupt (or significantly slow down) the develop
 </div>
 </div>
 
-<div id="outline-container-orgbbb3a7f" class="outline-2">
-<h2 id="orgbbb3a7f"><span class="section-number-2">2.</span> Collaboration</h2>
+<div id="outline-container-org0d47e51" class="outline-2">
+<h2 id="org0d47e51"><span class="section-number-2">2.</span> Collaboration</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 How do you manage a project worked on by tens of people? What about hundreds? What about thousands of developers all making changes to the source code?
@@ -307,14 +299,14 @@ How do you manage a project worked on by tens of people? What about hundreds? Wh
 </div>
 </div>
 
-<div id="outline-container-org18b4753" class="outline-2">
-<h2 id="org18b4753"><span class="section-number-2">3.</span> Version Control Systems to the Rescue!</h2>
+<div id="outline-container-orgd166ac5" class="outline-2">
+<h2 id="orgd166ac5"><span class="section-number-2">3.</span> Version Control Systems to the Rescue!</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <code>Version Control Systems</code> keep track of the history (or different versions) of your project. They solve the <code>collaboration</code> problem by being able to support different versions (or <code>branches</code>) of the source code.
 </p>
 
-<pre class="example" id="orgcca31fb">
+<pre class="example" id="orgbd8a07a">
 groceries.txt (John's branch):
 &gt; milk
 &gt; flour
@@ -329,7 +321,7 @@ groceries.txt (Bob's branch):
 When developers are ready to <code>merge</code> two branches, the version control system allows them to do so.
 </p>
 
-<pre class="example" id="org00909df">
+<pre class="example" id="org3087619">
 groceries.txt (John's branch, after Bob merged his changes):
 &gt; milk
 &gt; flour
@@ -348,8 +340,8 @@ The most popular version control system today, and the topic of today's workshop
 </div>
 </div>
 
-<div id="outline-container-org06459e2" class="outline-2">
-<h2 id="org06459e2"><span class="section-number-2">4.</span> Git</h2>
+<div id="outline-container-org34cc0ae" class="outline-2">
+<h2 id="org34cc0ae"><span class="section-number-2">4.</span> Git</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -358,8 +350,8 @@ FUN FACT: Git was created by Linus Torvalds to manage the development of Linux! 
 </blockquote>
 </div>
 
-<div id="outline-container-org27a3cd8" class="outline-3">
-<h3 id="org27a3cd8"><span class="section-number-3">4.1.</span> Back to the Basics</h3>
+<div id="outline-container-org9f19d24" class="outline-3">
+<h3 id="org9f19d24"><span class="section-number-3">4.1.</span> Back to the Basics</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Git keeps track of your history in the <code>.git</code> directory. The directory in which <code>.git</code> is located is called the <code>root project directory</code>. You need only one <code>.git</code> file per project and that is fully managed by Git itself.
@@ -375,8 +367,8 @@ Git is managed by the <span class="underline">git</span> command: <a href="https
 </div>
 </div>
 
-<div id="outline-container-org863f9be" class="outline-3">
-<h3 id="org863f9be"><span class="section-number-3">4.2.</span> Let's Git Going!</h3>
+<div id="outline-container-orgfdef7ae" class="outline-3">
+<h3 id="orgfdef7ae"><span class="section-number-3">4.2.</span> Let's Git Going!</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-shell"># Go to the directory which you want git to track
@@ -409,12 +401,12 @@ git commit -m "your message here"
 </div>
 </div>
 
-<div id="outline-container-orgea93765" class="outline-2">
-<h2 id="orgea93765"><span class="section-number-2">5.</span> Sync to the Hub&#x2026;the GitHub</h2>
+<div id="outline-container-org8d8b132" class="outline-2">
+<h2 id="org8d8b132"><span class="section-number-2">5.</span> Sync to the Hub&#x2026;the GitHub</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org13c0d98" class="outline-3">
-<h3 id="org13c0d98"><span class="section-number-3">5.1.</span> What is "the Cloud"</h3>
+<div id="outline-container-orgb133798" class="outline-3">
+<h3 id="orgb133798"><span class="section-number-3">5.1.</span> What is "the Cloud"</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 You can think of the <code>cloud</code> as a computer that is always on (i.e. a server) managed by someone, somewhere in the world. Since the cloud is (almost) always up and running, you should be able to access your files at any time (think OneDrive, Google Drive, Dropbox, etc.).
@@ -422,8 +414,8 @@ You can think of the <code>cloud</code> as a computer that is always on (i.e. a 
 </div>
 </div>
 
-<div id="outline-container-org4465c4d" class="outline-3">
-<h3 id="org4465c4d"><span class="section-number-3">5.2.</span> Github, the Developer's Cloud Storage</h3>
+<div id="outline-container-org3e6a24e" class="outline-3">
+<h3 id="org3e6a24e"><span class="section-number-3">5.2.</span> Github, the Developer's Cloud Storage</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Upload / download code</li>
@@ -446,8 +438,8 @@ Github is the industry standard, but not the only option:
 </div>
 
 
-<div id="outline-container-org2c4450a" class="outline-3">
-<h3 id="org2c4450a"><span class="section-number-3">5.3.</span> Hosting Your Own Code Repository Server</h3>
+<div id="outline-container-orgcb64a14" class="outline-3">
+<h3 id="orgcb64a14"><span class="section-number-3">5.3.</span> Hosting Your Own Code Repository Server</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 If you have a spare computer around you can host your own <code>code repository server</code>. Some pre-built options are:
@@ -460,12 +452,12 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 
 
-<div id="outline-container-orgf436254" class="outline-3">
-<h3 id="orgf436254"><span class="section-number-3">5.4.</span> Git Syncing!</h3>
+<div id="outline-container-orgcc738b9" class="outline-3">
+<h3 id="orgcc738b9"><span class="section-number-3">5.4.</span> Git Syncing!</h3>
 <div class="outline-text-3" id="text-5-4">
 </div>
-<div id="outline-container-orgc772231" class="outline-4">
-<h4 id="orgc772231"><span class="section-number-4">5.4.1.</span> Prerequisites (for Github)</h4>
+<div id="outline-container-org11a358a" class="outline-4">
+<h4 id="org11a358a"><span class="section-number-4">5.4.1.</span> Prerequisites (for Github)</h4>
 <div class="outline-text-4" id="text-5-4-1">
 <ul class="org-ul">
 <li>Github account with an <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">SSH key</a></li>
@@ -474,8 +466,8 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 </div>
 
-<div id="outline-container-org609a567" class="outline-4">
-<h4 id="org609a567"><span class="section-number-4">5.4.2.</span> Prerequisites (in general)</h4>
+<div id="outline-container-org4675282" class="outline-4">
+<h4 id="org4675282"><span class="section-number-4">5.4.2.</span> Prerequisites (in general)</h4>
 <div class="outline-text-4" id="text-5-4-2">
 <ul class="org-ul">
 <li>Local git repo</li>
@@ -483,8 +475,8 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 </div>
 
-<div id="outline-container-org1483168" class="outline-4">
-<h4 id="org1483168"><span class="section-number-4">5.4.3.</span> Ready, Set, Sync!</h4>
+<div id="outline-container-org0f600b9" class="outline-4">
+<h4 id="org0f600b9"><span class="section-number-4">5.4.3.</span> Ready, Set, Sync!</h4>
 <div class="outline-text-4" id="text-5-4-3">
 <div class="org-src-container">
 <pre class="src src-shell"># Be inside your local git repo
@@ -505,8 +497,8 @@ git push origin &lt;branch name&gt;
 </div>
 </div>
 
-<div id="outline-container-org77daac8" class="outline-4">
-<h4 id="org77daac8"><span class="section-number-4">5.4.4.</span> Downloading Your Source Code</h4>
+<div id="outline-container-orgf43d654" class="outline-4">
+<h4 id="orgf43d654"><span class="section-number-4">5.4.4.</span> Downloading Your Source Code</h4>
 <div class="outline-text-4" id="text-5-4-4">
 <p>
 Let's say your computer was destroyed by an alien invasion, or perhaps more simply you want to share your code on your friend Bob's computer, how would you do that?
@@ -514,7 +506,7 @@ Let's say your computer was destroyed by an alien invasion, or perhaps more simp
 </div>
 
 <ol class="org-ol">
-<li><a id="org728bb9d"></a>Downloading Everything from Scratch<br />
+<li><a id="org7df4b2c"></a>Downloading Everything from Scratch<br />
 <div class="outline-text-5" id="text-5-4-4-1">
 <div class="org-src-container">
 <pre class="src src-shell">git clone &lt;repo link&gt;
@@ -523,7 +515,7 @@ Let's say your computer was destroyed by an alien invasion, or perhaps more simp
 </div>
 </li>
 
-<li><a id="org5e5ddc2"></a>Updating Your Local Repo<br />
+<li><a id="orgbd01dcc"></a>Updating Your Local Repo<br />
 <div class="outline-text-5" id="text-5-4-4-2">
 <p>
 If you already have the repo on your machine and you just want to update it to any changes that someone has made, this option is for you.
@@ -550,8 +542,8 @@ git pull origin &lt;other branch&gt;
 </div>
 </div>
 
-<div id="outline-container-org4dc7548" class="outline-2">
-<h2 id="org4dc7548"><span class="section-number-2">6.</span> Groceries: A Practical Example</h2>
+<div id="outline-container-orgcb5eac5" class="outline-2">
+<h2 id="orgcb5eac5"><span class="section-number-2">6.</span> Groceries: A Practical Example</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-shell"># Create empty directory
@@ -575,7 +567,7 @@ git commit -m "created groceries file"
 <p>
 Current state of our git repo:
 </p>
-<pre class="example" id="orgb24bb79">
+<pre class="example" id="org1a71615">
         "created groceries file"
 master: ------o
 </pre>
@@ -609,7 +601,7 @@ git commit -m "zuck groceries"
 <p>
 The state of our git repo looks like this:
 </p>
-<pre class="example" id="orgb5197a5">
+<pre class="example" id="org44e0d5f">
         "created groceries file"
 master: -----------o
                     \ "added my groceries"
@@ -643,7 +635,7 @@ git rebase my_groceries
 <p>
 The state of our git repo looks like this:
 </p>
-<pre class="example" id="orgf5353ee">
+<pre class="example" id="org7cf5335">
         "created groceries file"
 master: -----------o                              o--------------
                     \ "added my groceries"       /
@@ -683,8 +675,8 @@ The conflict is in line 2:
 </div>
 
 
-<div id="outline-container-org7805b8f" class="outline-3">
-<h3 id="org7805b8f"><span class="section-number-3">6.1.</span> Rebasing</h3>
+<div id="outline-container-org706bc1a" class="outline-3">
+<h3 id="org706bc1a"><span class="section-number-3">6.1.</span> Rebasing</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 What happens if you are working on your branch, but someone committed changes to the <code>master</code> branch which you need in order to finish your work? Well&#x2026; you use <a href="https://www.youtube.com/watch?v=nHcfoHOW4uA">rebase</a>.
@@ -732,7 +724,7 @@ git commit -m "created prices.txt"
 <p>
 The current state of our repo is:
 </p>
-<pre class="example" id="orgaeb18e2">
+<pre class="example" id="orgf904b53">
                  "created counter.txt"
 master: ... --------------o-------
                     \ 
@@ -763,7 +755,7 @@ Here's what <b>rebase</b> does:
 <p>
 This is what our repo looks like now:
 </p>
-<pre class="example" id="org4afa91f">
+<pre class="example" id="orgf66e267">
                  "created counter.txt"
 master: ... --------------o------------------------------------
                     \      \ REBASE \
@@ -777,8 +769,8 @@ Now, the <code>shopkeeper</code> has successfully incorporated changes from <b>u
 </div>
 </div>
 
-<div id="outline-container-orgac5c7ab" class="outline-3">
-<h3 id="orgac5c7ab"><span class="section-number-3">6.2.</span> Rolling Back</h3>
+<div id="outline-container-org957722d" class="outline-3">
+<h3 id="org957722d"><span class="section-number-3">6.2.</span> Rolling Back</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 What happens if you make a mistake and you want to go back to a previous commit? Use <code>git reset</code>:
@@ -804,8 +796,8 @@ git log --oneline --graph
 </div>
 </div>
 
-<div id="outline-container-org56c508b" class="outline-3">
-<h3 id="org56c508b"><span class="section-number-3">6.3.</span> Stashing</h3>
+<div id="outline-container-org412ef73" class="outline-3">
+<h3 id="org412ef73"><span class="section-number-3">6.3.</span> Stashing</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Imagine you made some changes, but you are not ready to commit them. Now you want to rebase (pull) some changes from upstream. The problem is that for rebase (pull) to work, you would need your local changes to be committed. A way to mitigate this is to use the <b>stash</b>.
@@ -826,95 +818,19 @@ If you wish to get rid of everything in your stash (you will not be able to reco
 </div>
 </div>
 
-<div id="outline-container-orgd724828" class="outline-2">
-<h2 id="orgd724828"><span class="section-number-2">7.</span> Do You Git It Now?</h2>
+<div id="outline-container-orge296532" class="outline-2">
+<h2 id="orge296532"><span class="section-number-2">7.</span> Do You Git It Now?</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 No? Then practice!
 </p>
 </div>
 </div>
-
-<div id="outline-container-org647228c" class="outline-2">
-<h2 id="org647228c"><span class="section-number-2">8.</span> Git Policy for Bricked-Up (Backend)</h2>
-<div class="outline-text-2" id="text-8">
-</div>
-<div id="outline-container-org845fbff" class="outline-3">
-<h3 id="org845fbff"><span class="section-number-3">8.1.</span> Branch Policy</h3>
-<div class="outline-text-3" id="text-8-1">
-<ul class="org-ul">
-<li>Each new feature / fix is its own branch</li>
-<li>Commit freely to that branch</li>
-<li>Developers submit pull requests (PRs) to <code>dev</code> branch (<a href="#org94777f3">meaningful</a> commit message)</li>
-<li>Lead must <a href="#org5ce761a">review</a> all PRs, before they are merged into <code>dev</code></li>
-<li>Lead is responsible for making sure <code>dev</code> works before merging with <code>master</code></li>
-<li><b>NOTE</b>: Only <code>dev</code> merges with <code>master</code></li>
-</ul>
-
-
-<blockquote>
-<p>
-TIP: Do not be afraid of commits! Commit your changes often! That's what they are for! For the purposes of our team, only the final commit (a.k.a. the PR commit) message must be properly structured! 
-</p>
-</blockquote>
-</div>
-</div>
-
-<div id="outline-container-org5ce761a" class="outline-3">
-<h3 id="org5ce761a"><span class="section-number-3">8.2.</span> PR Approval Criteria</h3>
-<div class="outline-text-3" id="text-8-2">
-<p>
-Here are the criteria the PR must adhere to in order to be accepted:
-</p>
-<ul class="org-ul">
-<li>No merge conflicts</li>
-<li>All tests are passing</li>
-<li>No junk files are present (e.g. <code>.vscode</code>)</li>
-<li>Directory hierarchy is followed</li>
-<li>PR commit message is <a href="#org94777f3">properly structured</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org94777f3" class="outline-3">
-<h3 id="org94777f3"><span class="section-number-3">8.3.</span> Commit Message Prefix</h3>
-<div class="outline-text-3" id="text-8-3">
-<p>
-This applies to final commits (i.e. commits when merging):
-</p>
-<ul class="org-ul">
-<li><b>feat(&lt;feature&gt;)</b>: description</li>
-<li><b>refactor(&lt;feature&gt;)</b>: description</li>
-<li><b>fix(&lt;feature&gt;):</b> description</li>
-<li><b>hotfix(&lt;bug&gt;)</b>: description</li>
-<li><b>bug(&lt;bug&gt;)</b>: description</li>
-<li><b>tests(&lt;feature&gt;)</b>: description</li>
-<li><b>misc</b>: description</li>
-<li><b>docs</b>: description</li>
-<li><b>update</b>: description</li>
-</ul>
-
-<pre class="example" id="orgf007c1d">
-feat(login): created login endpoint
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org25dd590" class="outline-3">
-<h3 id="org25dd590"><span class="section-number-3">8.4.</span> Merging and Rebasing Policy</h3>
-<div class="outline-text-3" id="text-8-4">
-<ul class="org-ul">
-<li><b>Squash merge</b> if your feature is ready to be merged upstream!</li>
-<li><b>Rebase</b> if you are still working on your code, but you need to pull the latest changes!</li>
-</ul>
-</div>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2024-10-16 Wed 00:00</p>
 <p class="author">Author: Rumen Mitov</p>
-<p class="date">Created: 2025-02-12 Wed 23:31</p>
+<p class="date">Created: 2025-02-13 Thu 17:04</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
