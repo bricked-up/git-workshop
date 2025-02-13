@@ -3,196 +3,20 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-02-13 Thu 17:04 -->
+<!-- 2025-02-13 Thu 17:11 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Git Good!</title>
 <meta name="author" content="Rumen Mitov" />
 <meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
-</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="src/readtheorg_theme/css/search.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,67 +25,68 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org015b407">1. Be safe, or be sorry!</a>
+<li><a href="#org7466dc9">1. Be safe, or be sorry!</a>
 <ul>
-<li><a href="#org5b6b491">1.1. Why Are Backups Important</a>
+<li><a href="#orgfdd712e">1.1. Why Are Backups Important</a>
 <ul>
-<li><a href="#org6018fc5">1.1.1. Recovery</a></li>
-<li><a href="#org3a47660">1.1.2. History</a></li>
+<li><a href="#orgd2c9236">1.1.1. Recovery</a></li>
+<li><a href="#org1bbcf79">1.1.2. History</a></li>
 </ul>
 </li>
-<li><a href="#orgf081dbb">1.2. Ergonomic Backups</a></li>
+<li><a href="#org454a057">1.2. Ergonomic Backups</a></li>
 </ul>
 </li>
-<li><a href="#org0d47e51">2. Collaboration</a></li>
-<li><a href="#orgd166ac5">3. Version Control Systems to the Rescue!</a></li>
-<li><a href="#org34cc0ae">4. Git</a>
+<li><a href="#orgd31f936">2. Collaboration</a></li>
+<li><a href="#orgdf969c7">3. Version Control Systems to the Rescue!</a></li>
+<li><a href="#org1173252">4. Git</a>
 <ul>
-<li><a href="#org9f19d24">4.1. Back to the Basics</a></li>
-<li><a href="#orgfdef7ae">4.2. Let's Git Going!</a></li>
+<li><a href="#orge986a81">4.1. Back to the Basics</a></li>
+<li><a href="#orgd9f7d09">4.2. Let's Git Going!</a></li>
 </ul>
 </li>
-<li><a href="#org8d8b132">5. Sync to the Hub&#x2026;the GitHub</a>
+<li><a href="#orgc140d10">5. Sync to the Hub&#x2026;the GitHub</a>
 <ul>
-<li><a href="#orgb133798">5.1. What is "the Cloud"</a></li>
-<li><a href="#org3e6a24e">5.2. Github, the Developer's Cloud Storage</a></li>
-<li><a href="#orgcb64a14">5.3. Hosting Your Own Code Repository Server</a></li>
-<li><a href="#orgcc738b9">5.4. Git Syncing!</a>
+<li><a href="#org458f3c7">5.1. What is "the Cloud"</a></li>
+<li><a href="#orgb1c1f80">5.2. Github, the Developer's Cloud Storage</a></li>
+<li><a href="#org8da1150">5.3. Hosting Your Own Code Repository Server</a></li>
+<li><a href="#orgf8c3fc7">5.4. Git Syncing!</a>
 <ul>
-<li><a href="#org11a358a">5.4.1. Prerequisites (for Github)</a></li>
-<li><a href="#org4675282">5.4.2. Prerequisites (in general)</a></li>
-<li><a href="#org0f600b9">5.4.3. Ready, Set, Sync!</a></li>
-<li><a href="#orgf43d654">5.4.4. Downloading Your Source Code</a></li>
+<li><a href="#org00d462c">5.4.1. Prerequisites (for Github)</a></li>
+<li><a href="#org5df59eb">5.4.2. Prerequisites (in general)</a></li>
+<li><a href="#orge00f180">5.4.3. Ready, Set, Sync!</a></li>
+<li><a href="#org2e9c82b">5.4.4. Downloading Your Source Code</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgcb5eac5">6. Groceries: A Practical Example</a>
+<li><a href="#org8830a1f">6. Groceries: A Practical Example</a>
 <ul>
-<li><a href="#org706bc1a">6.1. Rebasing</a></li>
-<li><a href="#org957722d">6.2. Rolling Back</a></li>
-<li><a href="#org412ef73">6.3. Stashing</a></li>
+<li><a href="#org1dace52">6.1. Rebasing</a></li>
+<li><a href="#org0f9851e">6.2. Rolling Back</a></li>
+<li><a href="#orgd0e383a">6.3. Stashing</a></li>
 </ul>
 </li>
-<li><a href="#orge296532">7. Do You Git It Now?</a></li>
+<li><a href="#org0187839">7. Do You Git It Now?</a></li>
 </ul>
 </div>
 </div>
 
-<div id="org4484edd" class="figure">
+<div id="outline-container-org7466dc9" class="outline-2">
+<h2 id="org7466dc9"><span class="section-number-2">1.</span> Be safe, or be sorry!</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orgfdd712e" class="outline-3">
+<h3 id="orgfdd712e"><span class="section-number-3">1.1.</span> Why Are Backups Important</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<div id="org5abe230" class="figure">
 <p><img src="./assets/git_fire.png" alt="git_fire.png" />
 </p>
 </div>
+</div>
 
-<div id="outline-container-org015b407" class="outline-2">
-<h2 id="org015b407"><span class="section-number-2">1.</span> Be safe, or be sorry!</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-org5b6b491" class="outline-3">
-<h3 id="org5b6b491"><span class="section-number-3">1.1.</span> Why Are Backups Important</h3>
-<div class="outline-text-3" id="text-1-1">
-</div>
-<div id="outline-container-org6018fc5" class="outline-4">
-<h4 id="org6018fc5"><span class="section-number-4">1.1.1.</span> Recovery</h4>
+<div id="outline-container-orgd2c9236" class="outline-4">
+<h4 id="orgd2c9236"><span class="section-number-4">1.1.1.</span> Recovery</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 If something happens to your machine, you do not want to lose all your work! This is an even greater problem for coding projects that span <code>decades</code>!
@@ -270,8 +95,8 @@ If something happens to your machine, you do not want to lose all your work! Thi
 </div>
 
 
-<div id="outline-container-org3a47660" class="outline-4">
-<h4 id="org3a47660"><span class="section-number-4">1.1.2.</span> History</h4>
+<div id="outline-container-org1bbcf79" class="outline-4">
+<h4 id="org1bbcf79"><span class="section-number-4">1.1.2.</span> History</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 If you want to make experimental changes, it is easier to do so if you know that you can always recover your previous state.
@@ -280,8 +105,8 @@ If you want to make experimental changes, it is easier to do so if you know that
 </div>
 </div>
 
-<div id="outline-container-orgf081dbb" class="outline-3">
-<h3 id="orgf081dbb"><span class="section-number-3">1.2.</span> Ergonomic Backups</h3>
+<div id="outline-container-org454a057" class="outline-3">
+<h3 id="org454a057"><span class="section-number-3">1.2.</span> Ergonomic Backups</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The backup process should not interrupt (or significantly slow down) the development process.
@@ -290,8 +115,8 @@ The backup process should not interrupt (or significantly slow down) the develop
 </div>
 </div>
 
-<div id="outline-container-org0d47e51" class="outline-2">
-<h2 id="org0d47e51"><span class="section-number-2">2.</span> Collaboration</h2>
+<div id="outline-container-orgd31f936" class="outline-2">
+<h2 id="orgd31f936"><span class="section-number-2">2.</span> Collaboration</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 How do you manage a project worked on by tens of people? What about hundreds? What about thousands of developers all making changes to the source code?
@@ -299,14 +124,14 @@ How do you manage a project worked on by tens of people? What about hundreds? Wh
 </div>
 </div>
 
-<div id="outline-container-orgd166ac5" class="outline-2">
-<h2 id="orgd166ac5"><span class="section-number-2">3.</span> Version Control Systems to the Rescue!</h2>
+<div id="outline-container-orgdf969c7" class="outline-2">
+<h2 id="orgdf969c7"><span class="section-number-2">3.</span> Version Control Systems to the Rescue!</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 <code>Version Control Systems</code> keep track of the history (or different versions) of your project. They solve the <code>collaboration</code> problem by being able to support different versions (or <code>branches</code>) of the source code.
 </p>
 
-<pre class="example" id="orgbd8a07a">
+<pre class="example" id="orgfafc548">
 groceries.txt (John's branch):
 &gt; milk
 &gt; flour
@@ -321,7 +146,7 @@ groceries.txt (Bob's branch):
 When developers are ready to <code>merge</code> two branches, the version control system allows them to do so.
 </p>
 
-<pre class="example" id="org3087619">
+<pre class="example" id="orgd14abad">
 groceries.txt (John's branch, after Bob merged his changes):
 &gt; milk
 &gt; flour
@@ -340,8 +165,8 @@ The most popular version control system today, and the topic of today's workshop
 </div>
 </div>
 
-<div id="outline-container-org34cc0ae" class="outline-2">
-<h2 id="org34cc0ae"><span class="section-number-2">4.</span> Git</h2>
+<div id="outline-container-org1173252" class="outline-2">
+<h2 id="org1173252"><span class="section-number-2">4.</span> Git</h2>
 <div class="outline-text-2" id="text-4">
 <blockquote>
 <p>
@@ -350,8 +175,8 @@ FUN FACT: Git was created by Linus Torvalds to manage the development of Linux! 
 </blockquote>
 </div>
 
-<div id="outline-container-org9f19d24" class="outline-3">
-<h3 id="org9f19d24"><span class="section-number-3">4.1.</span> Back to the Basics</h3>
+<div id="outline-container-orge986a81" class="outline-3">
+<h3 id="orge986a81"><span class="section-number-3">4.1.</span> Back to the Basics</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Git keeps track of your history in the <code>.git</code> directory. The directory in which <code>.git</code> is located is called the <code>root project directory</code>. You need only one <code>.git</code> file per project and that is fully managed by Git itself.
@@ -367,8 +192,8 @@ Git is managed by the <span class="underline">git</span> command: <a href="https
 </div>
 </div>
 
-<div id="outline-container-orgfdef7ae" class="outline-3">
-<h3 id="orgfdef7ae"><span class="section-number-3">4.2.</span> Let's Git Going!</h3>
+<div id="outline-container-orgd9f7d09" class="outline-3">
+<h3 id="orgd9f7d09"><span class="section-number-3">4.2.</span> Let's Git Going!</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-shell"># Go to the directory which you want git to track
@@ -401,12 +226,12 @@ git commit -m "your message here"
 </div>
 </div>
 
-<div id="outline-container-org8d8b132" class="outline-2">
-<h2 id="org8d8b132"><span class="section-number-2">5.</span> Sync to the Hub&#x2026;the GitHub</h2>
+<div id="outline-container-orgc140d10" class="outline-2">
+<h2 id="orgc140d10"><span class="section-number-2">5.</span> Sync to the Hub&#x2026;the GitHub</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgb133798" class="outline-3">
-<h3 id="orgb133798"><span class="section-number-3">5.1.</span> What is "the Cloud"</h3>
+<div id="outline-container-org458f3c7" class="outline-3">
+<h3 id="org458f3c7"><span class="section-number-3">5.1.</span> What is "the Cloud"</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 You can think of the <code>cloud</code> as a computer that is always on (i.e. a server) managed by someone, somewhere in the world. Since the cloud is (almost) always up and running, you should be able to access your files at any time (think OneDrive, Google Drive, Dropbox, etc.).
@@ -414,8 +239,8 @@ You can think of the <code>cloud</code> as a computer that is always on (i.e. a 
 </div>
 </div>
 
-<div id="outline-container-org3e6a24e" class="outline-3">
-<h3 id="org3e6a24e"><span class="section-number-3">5.2.</span> Github, the Developer's Cloud Storage</h3>
+<div id="outline-container-orgb1c1f80" class="outline-3">
+<h3 id="orgb1c1f80"><span class="section-number-3">5.2.</span> Github, the Developer's Cloud Storage</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Upload / download code</li>
@@ -438,8 +263,8 @@ Github is the industry standard, but not the only option:
 </div>
 
 
-<div id="outline-container-orgcb64a14" class="outline-3">
-<h3 id="orgcb64a14"><span class="section-number-3">5.3.</span> Hosting Your Own Code Repository Server</h3>
+<div id="outline-container-org8da1150" class="outline-3">
+<h3 id="org8da1150"><span class="section-number-3">5.3.</span> Hosting Your Own Code Repository Server</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 If you have a spare computer around you can host your own <code>code repository server</code>. Some pre-built options are:
@@ -452,12 +277,12 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 
 
-<div id="outline-container-orgcc738b9" class="outline-3">
-<h3 id="orgcc738b9"><span class="section-number-3">5.4.</span> Git Syncing!</h3>
+<div id="outline-container-orgf8c3fc7" class="outline-3">
+<h3 id="orgf8c3fc7"><span class="section-number-3">5.4.</span> Git Syncing!</h3>
 <div class="outline-text-3" id="text-5-4">
 </div>
-<div id="outline-container-org11a358a" class="outline-4">
-<h4 id="org11a358a"><span class="section-number-4">5.4.1.</span> Prerequisites (for Github)</h4>
+<div id="outline-container-org00d462c" class="outline-4">
+<h4 id="org00d462c"><span class="section-number-4">5.4.1.</span> Prerequisites (for Github)</h4>
 <div class="outline-text-4" id="text-5-4-1">
 <ul class="org-ul">
 <li>Github account with an <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">SSH key</a></li>
@@ -466,8 +291,8 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 </div>
 
-<div id="outline-container-org4675282" class="outline-4">
-<h4 id="org4675282"><span class="section-number-4">5.4.2.</span> Prerequisites (in general)</h4>
+<div id="outline-container-org5df59eb" class="outline-4">
+<h4 id="org5df59eb"><span class="section-number-4">5.4.2.</span> Prerequisites (in general)</h4>
 <div class="outline-text-4" id="text-5-4-2">
 <ul class="org-ul">
 <li>Local git repo</li>
@@ -475,8 +300,8 @@ If you have a spare computer around you can host your own <code>code repository 
 </div>
 </div>
 
-<div id="outline-container-org0f600b9" class="outline-4">
-<h4 id="org0f600b9"><span class="section-number-4">5.4.3.</span> Ready, Set, Sync!</h4>
+<div id="outline-container-orge00f180" class="outline-4">
+<h4 id="orge00f180"><span class="section-number-4">5.4.3.</span> Ready, Set, Sync!</h4>
 <div class="outline-text-4" id="text-5-4-3">
 <div class="org-src-container">
 <pre class="src src-shell"># Be inside your local git repo
@@ -497,8 +322,8 @@ git push origin &lt;branch name&gt;
 </div>
 </div>
 
-<div id="outline-container-orgf43d654" class="outline-4">
-<h4 id="orgf43d654"><span class="section-number-4">5.4.4.</span> Downloading Your Source Code</h4>
+<div id="outline-container-org2e9c82b" class="outline-4">
+<h4 id="org2e9c82b"><span class="section-number-4">5.4.4.</span> Downloading Your Source Code</h4>
 <div class="outline-text-4" id="text-5-4-4">
 <p>
 Let's say your computer was destroyed by an alien invasion, or perhaps more simply you want to share your code on your friend Bob's computer, how would you do that?
@@ -506,7 +331,7 @@ Let's say your computer was destroyed by an alien invasion, or perhaps more simp
 </div>
 
 <ol class="org-ol">
-<li><a id="org7df4b2c"></a>Downloading Everything from Scratch<br />
+<li><a id="org216ad8d"></a>Downloading Everything from Scratch<br />
 <div class="outline-text-5" id="text-5-4-4-1">
 <div class="org-src-container">
 <pre class="src src-shell">git clone &lt;repo link&gt;
@@ -515,7 +340,7 @@ Let's say your computer was destroyed by an alien invasion, or perhaps more simp
 </div>
 </li>
 
-<li><a id="orgbd01dcc"></a>Updating Your Local Repo<br />
+<li><a id="orgbf050c7"></a>Updating Your Local Repo<br />
 <div class="outline-text-5" id="text-5-4-4-2">
 <p>
 If you already have the repo on your machine and you just want to update it to any changes that someone has made, this option is for you.
@@ -542,8 +367,8 @@ git pull origin &lt;other branch&gt;
 </div>
 </div>
 
-<div id="outline-container-orgcb5eac5" class="outline-2">
-<h2 id="orgcb5eac5"><span class="section-number-2">6.</span> Groceries: A Practical Example</h2>
+<div id="outline-container-org8830a1f" class="outline-2">
+<h2 id="org8830a1f"><span class="section-number-2">6.</span> Groceries: A Practical Example</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-shell"># Create empty directory
@@ -567,7 +392,7 @@ git commit -m "created groceries file"
 <p>
 Current state of our git repo:
 </p>
-<pre class="example" id="org1a71615">
+<pre class="example" id="orgba493b5">
         "created groceries file"
 master: ------o
 </pre>
@@ -601,7 +426,7 @@ git commit -m "zuck groceries"
 <p>
 The state of our git repo looks like this:
 </p>
-<pre class="example" id="org44e0d5f">
+<pre class="example" id="org6bd8607">
         "created groceries file"
 master: -----------o
                     \ "added my groceries"
@@ -635,7 +460,7 @@ git rebase my_groceries
 <p>
 The state of our git repo looks like this:
 </p>
-<pre class="example" id="org7cf5335">
+<pre class="example" id="orgfb398b6">
         "created groceries file"
 master: -----------o                              o--------------
                     \ "added my groceries"       /
@@ -675,8 +500,8 @@ The conflict is in line 2:
 </div>
 
 
-<div id="outline-container-org706bc1a" class="outline-3">
-<h3 id="org706bc1a"><span class="section-number-3">6.1.</span> Rebasing</h3>
+<div id="outline-container-org1dace52" class="outline-3">
+<h3 id="org1dace52"><span class="section-number-3">6.1.</span> Rebasing</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 What happens if you are working on your branch, but someone committed changes to the <code>master</code> branch which you need in order to finish your work? Well&#x2026; you use <a href="https://www.youtube.com/watch?v=nHcfoHOW4uA">rebase</a>.
@@ -724,7 +549,7 @@ git commit -m "created prices.txt"
 <p>
 The current state of our repo is:
 </p>
-<pre class="example" id="orgf904b53">
+<pre class="example" id="org963096f">
                  "created counter.txt"
 master: ... --------------o-------
                     \ 
@@ -755,7 +580,7 @@ Here's what <b>rebase</b> does:
 <p>
 This is what our repo looks like now:
 </p>
-<pre class="example" id="orgf66e267">
+<pre class="example" id="orgfed75ca">
                  "created counter.txt"
 master: ... --------------o------------------------------------
                     \      \ REBASE \
@@ -769,8 +594,8 @@ Now, the <code>shopkeeper</code> has successfully incorporated changes from <b>u
 </div>
 </div>
 
-<div id="outline-container-org957722d" class="outline-3">
-<h3 id="org957722d"><span class="section-number-3">6.2.</span> Rolling Back</h3>
+<div id="outline-container-org0f9851e" class="outline-3">
+<h3 id="org0f9851e"><span class="section-number-3">6.2.</span> Rolling Back</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 What happens if you make a mistake and you want to go back to a previous commit? Use <code>git reset</code>:
@@ -796,8 +621,8 @@ git log --oneline --graph
 </div>
 </div>
 
-<div id="outline-container-org412ef73" class="outline-3">
-<h3 id="org412ef73"><span class="section-number-3">6.3.</span> Stashing</h3>
+<div id="outline-container-orgd0e383a" class="outline-3">
+<h3 id="orgd0e383a"><span class="section-number-3">6.3.</span> Stashing</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Imagine you made some changes, but you are not ready to commit them. Now you want to rebase (pull) some changes from upstream. The problem is that for rebase (pull) to work, you would need your local changes to be committed. A way to mitigate this is to use the <b>stash</b>.
@@ -818,8 +643,8 @@ If you wish to get rid of everything in your stash (you will not be able to reco
 </div>
 </div>
 
-<div id="outline-container-orge296532" class="outline-2">
-<h2 id="orge296532"><span class="section-number-2">7.</span> Do You Git It Now?</h2>
+<div id="outline-container-org0187839" class="outline-2">
+<h2 id="org0187839"><span class="section-number-2">7.</span> Do You Git It Now?</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 No? Then practice!
@@ -830,7 +655,7 @@ No? Then practice!
 <div id="postamble" class="status">
 <p class="date">Date: 2024-10-16 Wed 00:00</p>
 <p class="author">Author: Rumen Mitov</p>
-<p class="date">Created: 2025-02-13 Thu 17:04</p>
+<p class="date">Created: 2025-02-13 Thu 17:11</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

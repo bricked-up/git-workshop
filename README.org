@@ -2,12 +2,12 @@
 #+author: Rumen Mitov
 #+date: [2024-10-16 Wed]
 #+export_file_name: index.html
-
-
-[[./assets/git_fire.png]]
+#+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * Be safe, or be sorry!
 ** Why Are Backups Important
+[[./assets/git_fire.png]]
+
 *** Recovery
 If something happens to your machine, you do not want to lose all your work! This is an even greater problem for coding projects that span =decades=!
 
